@@ -1,0 +1,132 @@
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.register {
+  gap: 18px;
+}
+
+.compact {
+  margin-bottom: 0;
+}
+
+.compactRegister {
+  margin-bottom: 0;
+}
+
+.helperLink {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #ece7f6;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.helperLink:hover {
+  color: #c985ee;
+}
+
+.hint {
+  display: none;
+}
+
+.register .primaryButton {
+  margin-top: 8px;
+}
+
+.register .divider {
+  margin-top: 23px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.primaryButton {
+  min-height: var(--auth-button-height);
+  margin-top: 0;
+  border: 0;
+  background: linear-gradient(180deg, #9d63bd 0%, #9961b9 100%);
+  box-shadow:
+    0 0 8px rgba(203, 109, 255, 0.44),
+    0 0 18px rgba(171, 92, 220, 0.28),
+    0 2px 8px rgba(91, 42, 128, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #f6eef8;
+  font-size: var(--auth-button-size);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.primaryButton:hover {
+  filter: brightness(1.08);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 18px;
+  margin-bottom: 16px;
+  color: #f0ebf4;
+  font-size: 15px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: rgba(173, 93, 221, 0.86);
+}
+
+.secondaryButton {
+  gap: 12px;
+  min-height: var(--auth-control-height);
+  border: 2px solid rgba(173, 93, 221, 0.86);
+  background: rgba(41, 40, 61, 0.18);
+  color: #f1eff8;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.spotifyIcon {
+  display: inline-flex;
+  width: 31px;
+  height: 31px;
+  color: #1ed760;
+}
+
+.errorText {
+  margin-top: 8px;
+  color: #cf5a91;
+  font-size: 13px;
+}
+
+@media (max-width: 560px) {
+  .form,
+  .register {
+    gap: 18px;
+  }
+
+  .primaryButton {
+    min-height: var(--auth-button-height);
+    font-size: var(--auth-button-size);
+  }
+
+  .secondaryButton {
+    min-height: var(--auth-control-height);
+    font-size: 16px;
+  }
+
+  .helperLink {
+    font-size: 14px;
+  }
+}

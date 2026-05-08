@@ -1,0 +1,181 @@
+.shell {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  font-family:
+    "Avenir Next Cyr", "Avenir Next", "Avenir", "Nunito Sans", "Inter", "Helvetica Neue", Arial,
+    sans-serif;
+}
+
+.shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      112deg,
+      rgba(19, 14, 39, 0.92) 0%,
+      rgba(34, 24, 63, 0.8) 47%,
+      rgba(18, 18, 39, 0.93) 100%
+    ),
+    url("/reset-password-bg.png") center / cover no-repeat;
+}
+
+.shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(11, 8, 26, 0.42), rgba(11, 8, 26, 0.08) 42%, rgba(11, 8, 26, 0.46)),
+    radial-gradient(ellipse at 50% 10%, rgba(189, 118, 229, 0.16), transparent 44%);
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100svh;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.stack {
+  display: flex;
+  width: min(100%, 600px);
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.stackRegister {
+  width: min(100%, 620px);
+}
+
+.brand {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    rgba(37, 36, 56, 0.92);
+  box-shadow:
+    0 28px 70px rgba(9, 6, 25, 0.45),
+    0 0 0 1px rgba(177, 92, 221, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.panel {
+  padding: 42px 52px 38px;
+}
+
+.title {
+  max-width: 460px;
+  margin: 0 auto 34px;
+  color: #f8f6fb;
+  font-size: clamp(38px, 4vw, 50px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.titleRegister {
+  max-width: 500px;
+}
+
+.bottomCopy {
+  margin: 30px 0 0;
+  color: #e7dff1;
+  font-size: 16px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.textSwitch {
+  margin-left: 6px;
+  color: #d989ff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.textSwitch:hover {
+  color: #efc4ff;
+  text-decoration-color: currentColor;
+}
+
+.textSwitch:focus-visible {
+  border-radius: 6px;
+  outline: 2px solid rgba(217, 137, 255, 0.75);
+  outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .stage {
+    align-items: flex-start;
+    padding: 32px 18px;
+  }
+
+  .stack,
+  .stackRegister {
+    gap: 24px;
+  }
+
+  .panel {
+    padding: 34px 28px 30px;
+  }
+
+  .title {
+    margin-bottom: 28px;
+    font-size: clamp(32px, 8vw, 42px);
+  }
+}
+
+@media (max-width: 480px) {
+  .stage {
+    padding: 22px 12px;
+  }
+
+  .stack,
+  .stackRegister {
+    gap: 18px;
+  }
+
+  .card {
+    border-radius: 18px;
+  }
+
+  .panel {
+    padding: 28px 16px 24px;
+  }
+
+  .title {
+    margin-bottom: 24px;
+    font-size: 30px;
+  }
+
+  .bottomCopy {
+    margin-top: 24px;
+    font-size: 14px;
+  }
+
+  .textSwitch {
+    display: inline-block;
+    margin-left: 4px;
+  }
+}

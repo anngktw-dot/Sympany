@@ -1,0 +1,16 @@
+.brandImage {
+  display: block;
+  width: var(--auth-logo-width);
+  height: auto;
+}
+
+.register {
+  width: var(--auth-logo-width);
+}
+
+@media (max-width: 900px) {
+  .brandImage,
+  .register {
+    width: min(var(--auth-logo-width), 62vw);
+  }
+}

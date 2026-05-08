@@ -1,0 +1,238 @@
+.shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+  font-family:
+    "Avenir Next Cyr", "Avenir Next", "Avenir", "Nunito Sans", "Inter", "Helvetica Neue", Arial,
+    sans-serif;
+  background: transparent;
+}
+
+.shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 28%),
+    radial-gradient(circle at 50% 16%, rgba(206, 164, 255, 0.045), transparent 0 10%);
+  pointer-events: none;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  display: none;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.shellDecor .scene {
+  display: block;
+  opacity: 1;
+}
+
+.sceneLeft,
+.sceneRight {
+  width: 100%;
+}
+
+.sceneDot {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(157, 139, 217, 0.14);
+}
+
+.sceneDotTop {
+  top: 193px;
+  left: -13px;
+  width: 34px;
+  height: 34px;
+  opacity: 0.85;
+}
+
+.sceneDotBottom {
+  bottom: 116px;
+  left: 144px;
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+.waveArt {
+  position: absolute;
+  top: 18px;
+  left: 250px;
+  width: 366px;
+  height: 628px;
+  stroke: rgba(120, 94, 188, 0.105);
+  stroke-width: 2;
+}
+
+.orbit {
+  position: absolute;
+  top: 286px;
+  right: 208px;
+  width: 58px;
+  height: 58px;
+  border: 7px dashed rgba(118, 96, 181, 0.14);
+  border-radius: 50%;
+}
+
+.cornerRings {
+  position: absolute;
+  right: -56px;
+  bottom: -18px;
+  width: 372px;
+  height: 212px;
+  stroke: rgba(122, 97, 190, 0.16);
+  stroke-width: 2;
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100vh;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--auth-stage-top) 24px 40px;
+}
+
+.stack {
+  display: flex;
+  width: min(100%, var(--auth-card-width));
+  flex-direction: column;
+  align-items: center;
+  gap: var(--auth-stack-gap);
+  transform: scale(var(--auth-scale));
+  transform-origin: top center;
+}
+
+.stackRegister {
+  gap: var(--auth-stack-gap);
+}
+
+.brand img {
+  width: var(--auth-logo-width);
+}
+
+.card {
+  width: 100%;
+  border-radius: var(--auth-card-radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.012)),
+    linear-gradient(180deg, #2b2a3f 0%, #2a293d 100%);
+  box-shadow:
+    0 10px 22px rgba(11, 6, 26, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.01);
+}
+
+.panel {
+  padding: var(--auth-panel-top) var(--auth-panel-x) var(--auth-panel-bottom);
+}
+
+.title {
+  max-width: 522px;
+  margin: 0 auto 42px;
+  color: #f6f5f8;
+  font-size: var(--auth-title-size);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.titleRegister {
+  max-width: 430px;
+  margin-bottom: 34px;
+  line-height: 1.08;
+}
+
+.bottomCopy {
+  margin: 34px 0 0;
+  color: #f3eef8;
+  font-size: 16px;
+  text-align: center;
+}
+
+.textSwitch {
+  margin-left: 6px;
+  color: #a45acc;
+}
+
+@media (max-width: 1200px) {
+  .stage {
+    padding: var(--auth-stage-top) 24px 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .stage {
+    padding: 46px 16px 20px;
+  }
+
+  .stack,
+  .stackRegister {
+    width: min(100%, var(--auth-card-width));
+    gap: 28px;
+    transform: none;
+  }
+
+  .brand img {
+    width: min(var(--auth-logo-width), 62vw);
+  }
+
+  .card {
+    width: min(100%, var(--auth-card-width));
+  }
+
+  .panel {
+    padding: 32px 34px 30px;
+  }
+
+  .title,
+  .titleRegister {
+    margin-bottom: 34px;
+    font-size: clamp(30px, 5.6vw, var(--auth-title-size));
+  }
+
+  .waveArt {
+    left: -8px;
+    width: 470px;
+    height: 740px;
+  }
+
+  .orbit {
+    top: 160px;
+    right: 56px;
+  }
+
+  .cornerRings {
+    right: -28px;
+    width: 360px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 560px) {
+  .stage {
+    padding: 24px 14px;
+  }
+
+  .panel {
+    padding: 32px 18px 26px;
+  }
+
+  .title,
+  .titleRegister {
+    margin-bottom: 24px;
+    font-size: 30px;
+  }
+
+  .bottomCopy {
+    font-size: 14px;
+  }
+}
