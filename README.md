@@ -1,30 +1,58 @@
 # Sympany Frontend
 
-Frontend base for `Login` and `Registration` screens built with `Next.js + TypeScript`.
+A structured authentication frontend built with **Next.js, TypeScript, React Hook Form, and Zod**.
 
-## Stack
+The project focuses on clean front-end architecture, reusable form logic, validation, and a production-style development workflow.
 
-- `Next.js` App Router
-- `TypeScript`
-- `react-hook-form`
-- `zod`
-- `ESLint`
-- `Prettier`
-- `Husky`
-- `lint-staged`
-- `GitHub Actions`
+## Features
+
+- Login flow
+- Registration flow
+- Email verification screen
+- Forgot-password flow
+- Reset-password flow
+- Client-side form validation
+- Reusable UI and feature structure
+- Pre-commit formatting and linting
+- CI checks for lint, type safety, and build
+- Prepared Vercel deployment workflow
+
+## Tech Stack
+
+- **Next.js 15** — App Router
+- **React 19**
+- **TypeScript**
+- **React Hook Form**
+- **Zod**
+- **ESLint**
+- **Prettier**
+- **Husky + lint-staged**
+- **GitHub Actions**
+- **Vercel** — deployment workflow
 
 ## Project Structure
 
-```txt
+```text
 src/
-  app/
-  features/
-  shared/
-  widgets/
+├── app/
+├── features/
+├── shared/
+└── widgets/
 ```
 
-Architecture details are described in [ARCHITECTURE.md](./ARCHITECTURE.md).
+The codebase separates application routes, feature logic, shared components, and larger UI blocks to keep the project maintainable as it grows.
+
+More details: [ARCHITECTURE.md](./ARCHITECTURE.md)
+
+## Available Routes
+
+```text
+/
+/register
+/verify-email
+/forgot-password
+/reset-password
+```
 
 ## Local Development
 
@@ -34,7 +62,13 @@ Install dependencies:
 pnpm install
 ```
 
-Run development server:
+Create local environment settings:
+
+```bash
+cp .env.example .env.local
+```
+
+Run the development server:
 
 ```bash
 pnpm dev
@@ -42,12 +76,8 @@ pnpm dev
 
 Open:
 
-```txt
+```text
 http://127.0.0.1:3000
-http://127.0.0.1:3000/register
-http://127.0.0.1:3000/verify-email
-http://127.0.0.1:3000/forgot-password
-http://127.0.0.1:3000/reset-password
 ```
 
 ## Quality Commands
@@ -59,62 +89,22 @@ pnpm build
 pnpm format
 ```
 
-## Environment
+## CI/CD
 
-Copy `.env.example` to `.env.local`:
-
-```bash
-cp .env.example .env.local
-```
-
-## CI
-
-CI workflow runs:
+GitHub Actions checks:
 
 - lint
 - typecheck
-- build
+- production build
 
-File:
+A Vercel deployment workflow is also prepared in `.github/workflows/deploy.yml`.
 
-- [`.github/workflows/ci.yml`](./.github/workflows/ci.yml)
+## Development Workflow
 
-## CD / Vercel Deploy
+Husky and lint-staged run automated formatting and linting on staged files before commit, helping keep the codebase consistent.
 
-Deploy workflow is already prepared:
+---
 
-- [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)
+### What this project demonstrates
 
-To enable deploys from GitHub Actions, add these repository secrets:
-
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
-
-### How to get them
-
-`VERCEL_TOKEN`
-
-1. Open Vercel
-2. Go to `Settings -> Tokens`
-3. Create a new token
-
-`VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`
-
-1. Link the project to Vercel
-2. Run:
-
-```bash
-pnpm dlx vercel link
-```
-
-3. After linking, inspect `.vercel/project.json`
-4. Copy `orgId` and `projectId` into GitHub Secrets
-
-## Pre-commit Hooks
-
-Husky pre-commit hook runs:
-
-- `lint-staged`
-
-That means staged files are auto-formatted and linted before commit.
+Sympany shows practical experience with modern React/Next.js development, typed form handling, validation, scalable folder structure, automated quality checks, and deployment-oriented project setup.
