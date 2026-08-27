@@ -1,21 +1,43 @@
-# Sympany Frontend
+# Sympany — Music Discovery Platform
 
-A structured authentication frontend built with **Next.js, TypeScript, React Hook Form, and Zod**.
+**Role: Frontend Developer · Team project**
 
-The project focuses on clean front-end architecture, reusable form logic, validation, and a production-style development workflow.
+Sympany is a music-discovery web application focused on helping users discover tracks, build playlists, and manage a personal music library through a modern responsive interface.
 
-## Features
+This repository contains the **frontend implementation** of the product, built with **Next.js, React, and TypeScript**.
 
-- Login flow
-- Registration flow
-- Email verification screen
+## Product Features
+
+### Music discovery
+- Track-matching flow with **Like / Pass / Undo** interactions
+- Match progress and recommendation queue
+- Track details including artist, album, mood, BPM, duration, and match percentage
+- Liked-track collection during a discovery session
+
+### Library and playlists
+- Personal music library interface
+- Create local playlists
+- Rename and delete playlists
+- Add liked tracks to playlists
+- Dedicated playlist pages
+
+### Authentication and account flows
+- Login
+- Registration
+- Email verification
 - Forgot-password flow
 - Reset-password flow
 - Client-side form validation
-- Reusable UI and feature structure
-- Pre-commit formatting and linting
-- CI checks for lint, type safety, and build
-- Prepared Vercel deployment workflow
+- Profile / settings interface
+
+### Responsive product UI
+- Desktop navigation and layouts
+- Mobile navigation and responsive screens
+- Reusable UI components and page-level widgets
+
+## Spotify Integration Status
+
+The frontend includes the **Spotify connection UI and product flow**, but the repository does not present the Spotify API integration as fully completed. The current implementation uses local/mock track data and local playlist state for the product experience.
 
 ## Tech Stack
 
@@ -24,34 +46,51 @@ The project focuses on clean front-end architecture, reusable form logic, valida
 - **TypeScript**
 - **React Hook Form**
 - **Zod**
+- **CSS Modules**
+- **Lucide React**
 - **ESLint**
 - **Prettier**
 - **Husky + lint-staged**
 - **GitHub Actions**
 - **Vercel** — deployment workflow
 
-## Project Structure
+## Frontend Architecture
+
+The project uses an **FSD-lite** structure adapted for Next.js:
 
 ```text
 src/
-├── app/
-├── features/
-├── shared/
-└── widgets/
+├── app/        # routes and layouts
+├── entities/   # domain models
+├── features/   # user actions and business interactions
+├── shared/     # reusable UI and utilities
+└── widgets/    # composed product sections and pages
 ```
 
-The codebase separates application routes, feature logic, shared components, and larger UI blocks to keep the project maintainable as it grows.
+Current feature areas include:
+
+```text
+features/
+├── auth/
+├── music-match/
+└── playlists/
+```
 
 More details: [ARCHITECTURE.md](./ARCHITECTURE.md)
 
-## Available Routes
+## Main Routes
 
 ```text
 /
+/home
+/library
+/playlist/[playlistId]
+/profile
 /register
 /verify-email
 /forgot-password
 /reset-password
+/change-password
 ```
 
 ## Local Development
@@ -68,7 +107,7 @@ Create local environment settings:
 cp .env.example .env.local
 ```
 
-Run the development server:
+Run the app:
 
 ```bash
 pnpm dev
@@ -80,7 +119,7 @@ Open:
 http://127.0.0.1:3000
 ```
 
-## Quality Commands
+## Quality Checks
 
 ```bash
 pnpm lint
@@ -89,22 +128,8 @@ pnpm build
 pnpm format
 ```
 
-## CI/CD
+GitHub Actions checks linting, TypeScript safety, and the production build. Husky and lint-staged run formatting and linting before commits.
 
-GitHub Actions checks:
+## What This Project Demonstrates
 
-- lint
-- typecheck
-- production build
-
-A Vercel deployment workflow is also prepared in `.github/workflows/deploy.yml`.
-
-## Development Workflow
-
-Husky and lint-staged run automated formatting and linting on staged files before commit, helping keep the codebase consistent.
-
----
-
-### What this project demonstrates
-
-Sympany shows practical experience with modern React/Next.js development, typed form handling, validation, scalable folder structure, automated quality checks, and deployment-oriented project setup.
+My work on Sympany focused on the **frontend side of a full product**: implementing product screens and user flows, structuring a scalable Next.js codebase, building typed forms and validation, creating responsive UI, and supporting music-discovery and playlist interactions.
